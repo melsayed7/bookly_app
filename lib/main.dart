@@ -1,4 +1,5 @@
 import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/features/home/presentation/view/home.dart';
 import 'package:bookly_app/features/splash/presentation/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData().copyWith(
+      theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
       ),
-      home: const SplashScreen(),
+      initialRoute: SplashScreen.routeName,
+      routes: {
+        SplashScreen.routeName: (context) => SplashScreen(),
+        HomeScreen.routeName: (context) => HomeScreen()
+      },
     );
   }
 }
