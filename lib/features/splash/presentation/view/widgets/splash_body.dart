@@ -12,7 +12,8 @@ class _SplashBodyState extends State<SplashBody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
 
-  late Animation<Offset> sidingAnimation;
+  late Animation<Offset> sidingAnimationImage;
+  late Animation<Offset> sidingAnimationText;
 
   @override
   void initState() {
@@ -35,7 +36,13 @@ class _SplashBodyState extends State<SplashBody>
       vsync: this,
       duration: const Duration(seconds: 1),
     );
-    sidingAnimation = Tween(
+
+    sidingAnimationImage = Tween(
+      begin: const Offset(0, -2),
+      end: Offset.zero,
+    ).animate(animationController);
+
+    sidingAnimationText = Tween(
       begin: const Offset(0, 2),
       end: Offset.zero,
     ).animate(animationController);
@@ -54,14 +61,21 @@ class _SplashBodyState extends State<SplashBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(
-          'assets/images/Logo.png',
-        ),
         AnimatedBuilder(
-            animation: sidingAnimation,
+            animation: sidingAnimationImage,
             builder: (context, _) {
               return SlideTransition(
-                position: sidingAnimation,
+                position: sidingAnimationImage,
+                child: Image.asset(
+                  'assets/images/Logo.png',
+                ),
+              );
+            }),
+        AnimatedBuilder(
+            animation: sidingAnimationText,
+            builder: (context, _) {
+              return SlideTransition(
+                position: sidingAnimationText,
                 child: const Text(
                   'Read Free Books ... ',
                   textAlign: TextAlign.center,
