@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'custom_list_view_item.dart';
+import 'custom_book_item.dart';
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class FeaturedListView extends StatelessWidget {
             width: 10,
           ),
           itemBuilder: (context, index) {
-            return const CustomListViewItem();
+            return const CustomBookItem();
           },
         ),
       ),

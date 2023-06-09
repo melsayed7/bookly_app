@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/view/home.dart';
+import 'package:bookly_app/features/home/presentation/view/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashBody extends StatefulWidget {
