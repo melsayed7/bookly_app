@@ -13,7 +13,7 @@ class FeaturedListView extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20),
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemCount: 5,
+          itemCount: 7,
           separatorBuilder: (context, index) => const SizedBox(
             width: 10,
           ),

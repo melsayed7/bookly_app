@@ -1,14 +1,14 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/view/book_details_screen.dart';
+import 'package:bookly_app/features/home/presentation/view/widgets/rating_book.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         Navigator.of(context).pushNamed(BookDetailsScreen.routeName);
       },
@@ -60,7 +60,7 @@ class BestSellerListViewItem extends StatelessWidget {
                           '19.99 €',
                           style: Styles.textStyle20,
                         ),
-                        RatingBook(),
+                        RatingBook(mainAxisAlignment: MainAxisAlignment.start),
                       ],
                     ),
                   ],
@@ -74,32 +74,4 @@ class BestSellerListViewItem extends StatelessWidget {
   }
 }
 
-class RatingBook extends StatelessWidget {
-  const RatingBook({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        Icon(
-          FontAwesomeIcons.solidStar,
-          color: Colors.yellow,
-        ),
-        SizedBox(
-          width: 7,
-        ),
-        Text(
-          '4.8',
-          style: Styles.textStyle16,
-        ),
-        SizedBox(
-          width: 6,
-        ),
-        Text(
-          '(1234)',
-          style: Styles.textStyle14,
-        ),
-      ],
-    );
-  }
-}
