@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/search/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -16,10 +17,12 @@ class CustomAppBar extends StatelessWidget {
             height: 22,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(SearchScreen.routeName);
+            },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
-              size: 25,
+              size: 22,
             ),
           ),
         ],
